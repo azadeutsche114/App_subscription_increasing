@@ -28,7 +28,7 @@ from dateutil import parser # convert time in date time data type
 # In[2]:
 
 
-AyuRythm_appData = pd.read_csv("Dataset/FineTech appData/AyuRythm_appData.csv")
+AyuRythm_appData = pd.read_csv("Dataset/AyuRythm appData/AyuRythm_appData.csv")
 
 
 # In[3]:
@@ -166,7 +166,7 @@ print("Not enrolled user = ", (AyuRythm_appData.enrolled < 1).sum(), "out of 500
 print("Enrolled user = ",50000-(AyuRythm_appData.enrolled < 1).sum(),  "out of 50000")
 
 
-# ## Histogram of each feature of fineTech_appData2
+# ## Histogram of each feature of AyuRythm_appData2
 
 # In[21]:
 
@@ -295,7 +295,7 @@ type(AyuRythm_app_screen_Data)
 
 
 # Add ',' at the end of each string of  'sreen_list' for further operation.
-AyuRythm_appData['screen_list'] = fineTech_appData.screen_list.astype(str) + ','
+AyuRythm_appData['screen_list'] = AyuRythm_appData.screen_list.astype(str) + ','
 
 
 # In[38]:
@@ -452,7 +452,7 @@ loan_screens = ['Loan',
                 'Loan3',
                 'Loan4',
                ]
-AyuRythm_appData['loan_screens_count'] = fineTech_appData[loan_screens].sum(axis = 1)
+AyuRythm_appData['loan_screens_count'] = AyuRythm_appData[loan_screens].sum(axis = 1)
 AyuRythm_appData.drop(columns = loan_screens, inplace = True)
 
 
@@ -480,12 +480,12 @@ AyuRythm_appData.info()
 AyuRythm_appData.describe()
 
 
-# ## Heatmap with correlation matrix of new fineTech_appData
+# ## Heatmap with correlation matrix of new AyuRythm_appData
 
 # In[61]:
 
 
-# Heatmap with correlation matrix of new fineTech_appData
+# Heatmap with correlation matrix of new AyuRythm_appData
 
 plt.figure(figsize = (25,16)) 
 sns.heatmap(AyuRythm_appData.corr(), annot = True, linewidth =2) #*****code 13
